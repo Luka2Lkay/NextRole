@@ -7,6 +7,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-slate-900">
 
       <Header />
+      // add another component
     </main>
   );
 }
