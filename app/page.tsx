@@ -8,7 +8,6 @@ export default function Home() {
 
       <Header />
       // add another component
-         // add another component
     </main>
   );
 }
