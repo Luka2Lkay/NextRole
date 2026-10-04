@@ -39,9 +39,9 @@ Users will be able to:
 
 ### Application Status
 
-Applications can move through different stages: 
+Applications can move through different stages:
 
-***Saved -> Applied -> Interview -> Offer/Rejected***
+**_Saved -> Applied -> Interview -> Offer/Rejected_**
 
 ### Analytics
 
@@ -55,9 +55,31 @@ The application will eventually provide insights into the user's job search, suc
 
 ### Tech Stack
 
+{{STACK}}
+
+### Getting Started
+
+Clone the repository and install the dependencies:
+
+```
+git clone git@github.com:Luka2Lkay/NextRole.git
+
+cd NextRole
+
+npm install
+```
+
+Start the development server:
+
+```
+npm run dev
+```
+
+Open: 
+
+***http://localhost:3000***
+
 
 ## License
 
 This is currently a personal development project.
-
-
