@@ -52,3 +52,12 @@ The application will eventually provide insights into the user's job search, suc
 - Offers
 - Application trends
 - Job-search progress
+
+### Tech Stack
+
+
+## License
+
+This is currently a personal development project.
+
+
