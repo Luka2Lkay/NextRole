@@ -25,38 +25,40 @@ async function ApplicationPage({ params }: Props) {
     }
 
     return (
-        <main className="p-6">
-            <div className="mb-8">
-                <p className="text-sm text-gray-500">
-                    {application.company}
-                </p>
-                <h1 className="text-3xl font-bold">{application.position}</h1>
-            </div>
-
-            <div className="max-w-2xl space-y-6 rounded-xl border p-6">
-                <div>
-                    <p className="text-sm text-gray-500">Company</p>
-                    <p className="font-medium">{application.company}</p>
+        <main className="p-6 mt-20">
+            <div className="max-w-2xl mx-auto">
+                <div className="mb-8">
+                    <p className="text-sm text-gray-500">
+                        {application.company}
+                    </p>
+                    <h1 className="text-3xl font-bold">{application.position}</h1>
                 </div>
 
-                <div>
-                    <p className="text-sm text-gray-500">Location</p>
-                    <p className="font-medium">{application.location}</p>
-                </div>
+                <div className="max-w-2xl space-y-6 rounded-xl border p-6">
+                    <div>
+                        <p className="text-sm text-gray-500">Company</p>
+                        <p className="font-medium">{application.company}</p>
+                    </div>
 
-                <div>
-                    <p className="text-sm text-gray-500">Salary</p>
-                    <p className="font-medium">{application.salary || "N/A"}</p>
-                </div>
+                    <div>
+                        <p className="text-sm text-gray-500">Location</p>
+                        <p className="font-medium">{application.location}</p>
+                    </div>
 
-                <div>
-                    <p className="text-sm text-gray-500">Status</p>
-                    <p className="font-medium">{application.status}</p>
-                </div>
+                    <div>
+                        <p className="text-sm text-gray-500">Salary</p>
+                        <p className="font-medium">{application.salary || "N/A"}</p>
+                    </div>
 
-                <div>
-                    <p className="text-sm text-gray-500">Notes</p>
-                    <p className="font-medium">{application.notes || "None"}</p>
+                    <div>
+                        <p className="text-sm text-gray-500">Status</p>
+                        <p className="font-medium">{application.status}</p>
+                    </div>
+
+                    <div>
+                        <p className="text-sm text-gray-500">Notes</p>
+                        <p className="font-medium">{application.notes || "None"}</p>
+                    </div>
                 </div>
             </div>
         </main>
