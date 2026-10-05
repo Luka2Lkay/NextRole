@@ -1,7 +1,6 @@
-import { ArrowRight, BriefcaseBusiness } from "lucide-react";
-import Link from "next/link";
 import Header from "@/components/home/Header";
 import Hero from "@/components/home/Hero";
+import Features from "@/components/home/Features";
 
 export default function Home() {
   return (
@@ -9,6 +8,7 @@ export default function Home() {
 
       <Header />
       <Hero />
+      <Features />
       // add another component
     </main>
   );
