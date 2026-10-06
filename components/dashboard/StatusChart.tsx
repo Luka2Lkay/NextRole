@@ -31,7 +31,7 @@ function StatusChart({ applications }: Props) {
                             <span className="font-medium">
                                 {status}
                             </span>
-                            <span className={`${status === "OFFER" ?
+                            <span className={`text-medium ${status === "OFFER" ?
                                 "text-emerald-600" : status === "REJECTED" ?
                                     "text-red-500" : status === "INTERVIEW" ?
                                         "text-amber-600" : status === "APPLIED" ?
