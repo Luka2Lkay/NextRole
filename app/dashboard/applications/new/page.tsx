@@ -1,42 +1,42 @@
 function NewApplicationPage() {
     return (
-        <main className="p-6 mx-auto rounded-lg border border-gray-300 w-[80%]">
+        <main className="p-6 mx-auto rounded-lg border border-slate-300 w-[80%]">
             <div className="mb-8 max-w-2xl mx-auto">
-                <h1 className="text-3xl font-bold">Add Application</h1>
-                <p className="mt-2 text-gray-500">Add a new job application to your tracker.</p>
+                <h1 className="text-3xl font-bold text-slate-900">New Application</h1>
+                <p className="mt-2 text-slate-500">Add a new job application to your tracker.</p>
             </div>
 
             <form className="max-w-2xl space-y-6 mx-auto">
                 <div>
-                    <label className="mb-2 block text-sm font-medium">
+                    <label className="mb-2 block text-medium font-medium text-slate-900">
                         Company
                     </label>
-                    <input type="text" placeholder="e.g Google" className="w-full border rounded-lg px-4 py-3" />
+                    <input type="text" placeholder="e.g Google" className="w-full border rounded-lg px-4 py-3 text-slate-900" />
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium">
+                    <label className="mb-2 block text-medium font-medium text-slate-900">
                         Position
                     </label>
-                    <input type="text" placeholder="e.g Software Engineer" className="w-full border rounded-lg px-4 py-3" />
+                    <input type="text" placeholder="e.g Software Engineer" className="w-full border rounded-lg px-4 py-3 text-slate-900" />
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium">
+                    <label className="mb-2 block text-medium font-medium text-slate-900">
                         Location
                     </label>
-                    <input type="text" placeholder="e.g Cape Town" className="w-full border rounded-lg px-4 py-3" />
+                    <input type="text" placeholder="e.g Cape Town" className="w-full border rounded-lg px-4 py-3 text-slate-900" />
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium">
+                    <label className="mb-2 block text-medium font-medium text-slate-900">
                         Job URL
                     </label>
-                    <input type="url" placeholder="e.g https://..." className="w-full border rounded-lg px-4 py-3" />
+                    <input type="url" placeholder="e.g https://..." className="w-full border rounded-lg px-4 py-3 text-slate-900" />
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium">
+                    <label className="mb-2 block text-medium font-medium text-slate-900">
                         Status
                     </label>
                     <select className="w-full border rounded-lg px-4 py-3">
@@ -49,15 +49,18 @@ function NewApplicationPage() {
                 </div>
 
                 <div>
-                    <label className="mb-2 block text-sm font-medium">
+                    <label className="mb-2 block text-medium font-medium text-slate-900">
                         Notes
                     </label>
-                    <textarea rows={5} placeholder="Add notes about this application..." className="w-full rounded-lg border px-4 py-3" />
+                    <textarea rows={5} placeholder="Add notes about this application..." className="w-full rounded-lg border px-4 py-3 text-slate-900" />
                 </div>
 
-                <button type="submit" className="rounded-lg bg-black px-5 py-3 text-white">
-                    Save Appliaction
-                </button>
+                <div className="flex justify-center">
+                    <button type="submit" className=" w-full rounded-lg bg-indigo-700 px-5 py-3 text-white md:w-1/2 transition-colors hover:bg-indigo-900">
+                        ADD
+                    </button>
+                </div>
+
             </form>
         </main>
     )
