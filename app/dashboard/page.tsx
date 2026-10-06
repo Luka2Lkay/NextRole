@@ -19,7 +19,7 @@ function DashboardPage() {
 
             <div className="grid gap-6 lg:grid-cols-2">
                 <StatusChart applications={applications} />
-                <RecentApplications applications={applications}/>
+                <RecentApplications applications={applications} />
             </div>
         </main>
     )
