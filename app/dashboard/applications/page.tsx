@@ -9,7 +9,7 @@ function ApplicationsPage() {
                     <h1 className="text-3xl font-bold">Applications</h1>
                     <p className="mt-2 text-gray-500">Manage your job applications.</p>
                 </div>
-                <Link href="/dashboard/applications/new" className="rounded-lg bg-black px-4 py-2 text-white">
+                <Link href="/dashboard/applications/new" className="rounded-lg bg-slate-900 px-4 py-2 text-white">
                     Add Application
                 </Link>
             </div>
@@ -27,12 +27,12 @@ function ApplicationsPage() {
                     </thead>
                     <tbody>
                         {applications.map((application) => (
-                            <tr key={application.id} className="border-b last:border-b-0">
-                                <td className="p-4 font-medium">{application.company}</td>
-                                <td className="p-4">{application.position}</td>
-                                <td className="p-4">{application.location}</td>
-                                <td className="p-4">{application.status}</td>
-                                <td className="p-4">{application.appliedAt || "Not applied"}</td>
+                            <tr key={application.id} className="border-b last:border-b-0 hover:bg-gray-50">
+                                <td className="p-4 font-medium"><Link href={`/dashboard/applications/${application.id}`}>{application.company}</Link></td>
+                                <td className="p-4"><Link href={`/dashboard/applications/${application.id}`}>{application.position}</Link></td>
+                                <td className="p-4"><Link href={`/dashboard/applications/${application.id}`}>{application.location}</Link></td>
+                                <td className="p-4"><Link href={`/dashboard/applications/${application.id}`}>{application.status}</Link></td>
+                                <td className="p-4"><Link href={`/dashboard/applications/${application.id}`}>{application.appliedAt || "Not applied"}</Link></td>
                             </tr>
                         ))}
                     </tbody>
