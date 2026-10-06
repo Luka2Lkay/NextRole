@@ -53,7 +53,6 @@ function Hero() {
             </div>
           </div>
 
-          {/* Dashboard preview */}
           <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl shadow-slate-200/70 sm:p-6">
             <div className="flex items-center justify-between border-b border-slate-100 pb-5">
               <div>
@@ -88,7 +87,7 @@ function Hero() {
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="font-semibold">Recent applications</h3>
                 <span className="text-xs font-medium text-indigo-600">
-                  Preview
+                  View All
                 </span>
               </div>
 
