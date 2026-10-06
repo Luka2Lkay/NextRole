@@ -31,10 +31,18 @@ function StatusChart({ applications }: Props) {
                             <span className="font-medium">
                                 {status}
                             </span>
-                            <span className="text-gray-500">{count}</span>
+                            <span className={`${status === "OFFER" ?
+                                "text-emerald-600" : status === "REJECTED" ?
+                                    "text-red-500" : status === "INTERVIEW" ?
+                                        "text-amber-600" : status === "APPLIED" ?
+                                            "text-blue-600" : "text-slate-600"}`}>{count}</span>
                         </div>
 
-                        <div className="h-2 overflow-hidden rounded-full bg-gray-900" style={{ width: `${percentage}%` }} />
+                        <div className={`h-2 overflow-hidden rounded-full ${status === "OFFER" ?
+                            "bg-emerald-600" : status === "REJECTED" ?
+                                "bg-red-500" : status === "INTERVIEW" ?
+                                    "bg-amber-600" : status === "APPLIED" ?
+                                        "bg-blue-600" : "bg-slate-600"}`} style={{ width: `${percentage}%` }} />
                     </div>)
                 })}
             </div>
