@@ -56,7 +56,7 @@ function NewApplicationPage() {
                 </div>
 
                 <div className="flex justify-center">
-                    <button type="submit" className=" w-full rounded-lg bg-indigo-700 px-5 py-3 text-white md:w-1/2 transition-colors hover:bg-indigo-900">
+                    <button type="submit" className=" w-full rounded-lg bg-slate-700 px-5 py-3 text-white md:w-1/2 transition-colors hover:bg-slate-900">
                         ADD
                     </button>
                 </div>
