@@ -22,6 +22,8 @@ function AnalyticsPage() {
                     const count = applications.filter((application) => application.status === status).length;
 
                     return (
+
+                        // Add Navbar
                         <div key={status} className="rounded-xl border border-slate-100 bg-slate-50/80 p-3">
                             <p className="text-sm text-gray-500">{status}</p>
                             <p className={`mt-2 text-3xl font-bold ${status === "APPLIED" ?
