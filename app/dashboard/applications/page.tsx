@@ -3,7 +3,7 @@ import { applications } from "@/lib/data/applications"
 
 function ApplicationsPage() {
     return (
-        // add navbar
+        
         <main className="p-6">
             <div className="mb-8 flex items-center justify-between">
                 <div>
