@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "type-check": "rm -f next-env.d.ts && next typegen && tsc --noEmit",
+    "type-check": "tsc --noEmit",
     "spell-check": "cspell \"**/*.ts\" \"README.md\"",
     "lint": "eslint"
   },
