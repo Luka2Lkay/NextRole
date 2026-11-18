@@ -6,7 +6,7 @@ A web application for managing and tracking job applications in one place.
 
 The project is being developed incrementally, starting with a simple dashboard and application tracking system before introducing a database, authentication, analytics, and browser extension functionality.
 
-![CI](https://https://github.com/Luka2Lkay/NextRole/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/Luka2Lkay/NextRole/actions/workflows/ci.yml/badge.svg)
 
 ## Project Status
 
