@@ -5,13 +5,13 @@ const features = [
         icon: ClipboardList,
         title: "Track every application",
         description:
-            "Keep your job applications, company details, deadlines, and notes organized in one place.",
+            "No more wondering where you applied or when you last heard back.",
     },
     {
         icon: ChartNoAxesCombined,
         title: "Visualize your progress",
         description:
-            "Get a clear overview of your applications, interviews, offers, and job search activity.",
+            "See how your job search is going without digging through spreadsheets.",
     },
     {
         icon: Target,
@@ -30,7 +30,7 @@ function Features() {
                         Everything in one place
                     </p>
                     <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-                        Make your job search more manageable
+                        Everything you need to stay on top of your job search.
                     </h2>
                     <p className="mt-4 leading-7 text-slate-600">
                         Spend less time organizing spreadsheets and scattered notes,
