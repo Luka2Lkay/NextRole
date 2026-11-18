@@ -48,9 +48,7 @@ function Footer() {
                     <div className="max-w-xs">
                         <h3 className="text-sm font-semibold text-slate-900">One application at a time.</h3>
                         <p className="mt-4 text-sm leading-7 text-slate-500">
-                            Whether you're looking for your first job, an internship,
-                            or your next big career move, NextRole is here to help
-                            you keep track of the journey.
+                            {"Whether you're looking for your first job, an internship, or your next big career move, NextRole is here to help you keep track of the journey."}
                         </p>
                     </div>
                 </div>
