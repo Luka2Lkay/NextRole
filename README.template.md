@@ -6,6 +6,8 @@ A web application for managing and tracking job applications in one place.
 
 The project is being developed incrementally, starting with a simple dashboard and application tracking system before introducing a database, authentication, analytics, and browser extension functionality.
 
+![CI](https://github.com/Luka2Lkay/NextRole/actions/workflows/ci.yml/badge.svg)
+
 ## Project Status
 
 **Version 1 — In Development**
@@ -75,10 +77,9 @@ Start the development server:
 npm run dev
 ```
 
-Open: 
+Open:
 
-***http://localhost:3000***
-
+**_http://localhost:3000_**
 
 ## License
 

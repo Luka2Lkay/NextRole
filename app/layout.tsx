@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "Manage and track job applications in one place",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
