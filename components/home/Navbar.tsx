@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { BriefcaseBusiness } from 'lucide-react'
 
-function Header() {
+function Navbar() {
   return (
     <header className="border-b border-slate-100">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
@@ -28,4 +28,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Navbar

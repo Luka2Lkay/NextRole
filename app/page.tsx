@@ -1,4 +1,4 @@
-import Header from "@/components/home/Header";
+import Header from "@/components/home/Navbar";
 import Hero from "@/components/home/Hero";
 import Features from "@/components/home/Features";
 
