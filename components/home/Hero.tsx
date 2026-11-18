@@ -19,9 +19,7 @@ function Hero() {
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-8 text-slate-600">
-            Take control of your job search with NextRole. Track
-            applications, manage interviews, and see your progress
-            all in one place.
+            Applying for jobs, updating your CV, checking emails, and keeping track of interviews? Let's make at least one part of the job hunt easier.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-4">
