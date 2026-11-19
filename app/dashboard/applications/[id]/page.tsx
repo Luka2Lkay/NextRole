@@ -43,8 +43,7 @@ async function ApplicationPage({ params }: Props) {
                     </h1>
 
                     <p className="mt-2 text-sm text-slate-500">
-                        The application you're looking for doesn't exist or may have
-                        been removed.
+                        {"The application you're looking for doesn't exist or may have been removed."}
                     </p>
 
                     <Link
