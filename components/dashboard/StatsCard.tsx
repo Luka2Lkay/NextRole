@@ -1,51 +1,80 @@
 
+import {
+    BriefcaseBusiness,
+    Send,
+    CalendarCheck,
+    Trophy,
+} from "lucide-react";
+
 interface Props {
     total: number;
     applied: number;
     interviews: number;
-    offers: number
+    offers: number;
 }
 
 function StatsCard({ total, applied, interviews, offers }: Props) {
-
     const stats = [
         {
             label: "Total Applications",
             value: total,
-            color: "text-slate-900"
+            icon: BriefcaseBusiness,
+            color: "text-slate-700",
+            iconBg: "bg-slate-100",
         },
         {
             label: "Applied",
             value: applied,
-            color: "text-blue-600"
+            icon: Send,
+            color: "text-blue-600",
+            iconBg: "bg-blue-50",
         },
         {
             label: "Interviews",
             value: interviews,
-            color: "text-amber-600"
+            icon: CalendarCheck,
+            color: "text-amber-600",
+            iconBg: "bg-amber-50",
         },
         {
             label: "Offers",
             value: offers,
-            color: "text-emerald-600"
+            icon: Trophy,
+            color: "text-emerald-600",
+            iconBg: "bg-emerald-50",
         },
     ];
 
     return (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl border border-slate-100 bg-slate-50/80 p-3">
-                    <p className="text-xs text-slate-500">
-                        {stat.label}
-                    </p>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
+            {stats.map((stat) => {
+                const Icon = stat.icon;
 
-                    <p className={`mt-2 text-2xl font-bold ${stat.color}`}>
-                        {stat.value}
-                    </p>
-                </div>
-            ))}
+                return (
+                    <div
+                        key={stat.label}
+                        className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md sm:p-5"
+                    >
+                        <div className="flex items-center justify-between gap-3">
+                            <p className="text-xs font-medium text-slate-500 sm:text-sm">
+                                {stat.label}
+                            </p>
+
+                            <div
+                                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${stat.iconBg}`}
+                            >
+                                <Icon size={18} className={stat.color} />
+                            </div>
+                        </div>
+
+                        <p className={`mt-3 text-2xl font-bold sm:text-3xl ${stat.color}`}>
+                            {stat.value}
+                        </p>
+                    </div>
+                );
+            })}
         </div>
-    )
+    );
 }
 
-export default StatsCard
+export default StatsCard;
