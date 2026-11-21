@@ -65,9 +65,7 @@ function Hero() {
           </h1>
 
           <p className="mt-7 max-w-lg text-lg leading-8 text-stone-600">
-            Applying for jobs, updating your CV, checking emails, and keeping
-            track of interviews? Let's make at least one part of the job hunt
-            easier.
+            {"Applying for jobs, updating your CV, checking emails, and keeping track of interviews? Let's make at least one part of the job hunt easier."}
           </p>
 
           <div className="mt-9 flex flex-wrap gap-4">

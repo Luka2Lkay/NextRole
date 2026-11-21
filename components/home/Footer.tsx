@@ -62,9 +62,7 @@ function Footer() {
                         </h3>
 
                         <p className="mt-4 text-sm leading-7 text-stone-600">
-                            Whether you're looking for your first job, an internship,
-                            or your next big career move, NextRole is here to help
-                            you keep track of the journey.
+                            {"Whether you're looking for your first job, an internship, or your next big career move, NextRole is here to help you keep track of the journey."}
                         </p>
                     </div>
                 </div>
