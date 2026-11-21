@@ -14,7 +14,7 @@ function Footer() {
         <footer className="border-t border-green-900/10 bg-stone-100">
             <div className="mx-auto max-w-7xl px-6 py-12">
                 <div className="flex flex-col justify-between gap-10 md:flex-row">
-                    {/* Brand and description */}
+
                     <div className="max-w-sm">
                         <Link href="/" className="flex items-center gap-2">
                             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-green-950 text-lime-300">
@@ -35,7 +35,6 @@ function Footer() {
                         </p>
                     </div>
 
-                    {/* Navigation links */}
                     <div>
                         <h3 className="text-sm font-semibold text-green-950">
                             Explore
@@ -55,7 +54,6 @@ function Footer() {
                         </ul>
                     </div>
 
-                    {/* Closing message */}
                     <div className="max-w-xs">
                         <h3 className="text-sm font-semibold text-green-950">
                             One application at a time.
@@ -67,7 +65,6 @@ function Footer() {
                     </div>
                 </div>
 
-                {/* Copyright */}
                 <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-green-900/10 pt-6 text-center sm:flex-row sm:text-left">
                     <p className="text-sm text-stone-600">
                         © {new Date().getFullYear()} NextRole. All rights reserved.
