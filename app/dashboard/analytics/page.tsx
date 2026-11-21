@@ -14,27 +14,27 @@ const statusConfig = {
     SAVED: {
         label: "Saved",
         icon: Bookmark,
-        color: "bg-slate-100 text-slate-600",
+        color: "bg-stone-100 text-stone-600",
     },
     APPLIED: {
         label: "Applied",
         icon: Send,
-        color: "bg-blue-50 text-blue-700",
+        color: "bg-green-100 text-green-800",
     },
     INTERVIEW: {
         label: "Interviews",
         icon: CalendarCheck,
-        color: "bg-amber-50 text-amber-700",
+        color: "bg-amber-100 text-amber-800",
     },
     OFFER: {
         label: "Offers",
         icon: Trophy,
-        color: "bg-emerald-50 text-emerald-700",
+        color: "bg-lime-100 text-lime-800",
     },
     REJECTED: {
         label: "Rejected",
         icon: XCircle,
-        color: "bg-red-50 text-red-600",
+        color: "bg-red-100 text-red-700",
     },
 } as const;
 
@@ -66,72 +66,70 @@ function AnalyticsPage() {
         : 0;
 
     return (
-        <main className="min-w-0 space-y-6 p-4 sm:space-y-8 sm:p-6 lg:p-8">
-            {/* Page heading */}
+        <main className="min-w-0 space-y-6 bg-stone-100 p-4 sm:space-y-8 sm:p-6 lg:p-8">
+
             <div>
-                <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                <h1 className="text-2xl font-bold tracking-tight text-green-950 sm:text-3xl">
                     Analytics
                 </h1>
-                <p className="mt-2 text-sm text-slate-500 sm:text-base">
+                <p className="mt-2 text-sm text-stone-600 sm:text-base">
                     Understand your job search activity and track your progress.
                 </p>
             </div>
 
-            {/* Overview cards */}
             <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                <div className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+                <div className="min-w-0 rounded-xl border border-green-900/10 bg-white p-4 shadow-sm sm:p-5">
                     <div className="flex items-center justify-between">
-                        <p className="text-sm font-medium text-slate-500">
+                        <p className="text-sm font-medium text-stone-600">
                             Total Applications
                         </p>
-                        <BriefcaseBusiness className="text-slate-400" size={20} />
+                        <BriefcaseBusiness className="text-green-700" size={20} />
                     </div>
-                    <p className="mt-4 text-3xl font-bold text-slate-900">
+                    <p className="mt-4 text-3xl font-bold text-green-950">
                         {totalApplications}
                     </p>
-                    <p className="mt-1 text-xs text-slate-500">
+                    <p className="mt-1 text-xs text-stone-500">
                         Applications tracked
                     </p>
                 </div>
 
-                <div className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+                <div className="min-w-0 rounded-xl border border-green-900/10 bg-white p-4 shadow-sm sm:p-5">
                     <div className="flex items-center justify-between">
-                        <p className="text-sm font-medium text-slate-500">
+                        <p className="text-sm font-medium text-stone-600">
                             Interviews
                         </p>
-                        <CalendarCheck className="text-amber-500" size={20} />
+                        <CalendarCheck className="text-amber-600" size={20} />
                     </div>
-                    <p className="mt-4 text-3xl font-bold text-slate-900">
+                    <p className="mt-4 text-3xl font-bold text-green-950">
                         {interviews}
                     </p>
-                    <p className="mt-1 text-xs text-slate-500">
+                    <p className="mt-1 text-xs text-stone-500">
                         Interview opportunities
                     </p>
                 </div>
 
-                <div className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+                <div className="min-w-0 rounded-xl border border-green-900/10 bg-white p-4 shadow-sm sm:p-5">
                     <div className="flex items-center justify-between">
-                        <p className="text-sm font-medium text-slate-500">
+                        <p className="text-sm font-medium text-stone-600">
                             Offer Rate
                         </p>
-                        <TrendingUp className="text-emerald-500" size={20} />
+                        <TrendingUp className="text-lime-700" size={20} />
                     </div>
-                    <p className="mt-4 text-3xl font-bold text-slate-900">
+                    <p className="mt-4 text-3xl font-bold text-green-950">
                         {offerRate}%
                     </p>
-                    <p className="mt-1 text-xs text-slate-500">
+                    <p className="mt-1 text-xs text-stone-500">
                         Offers relative to all tracked applications
                     </p>
                 </div>
             </section>
 
-            {/* Application status breakdown */}
             <section className="space-y-4">
                 <div>
-                    <h2 className="text-lg font-semibold text-slate-900">
+                    <h2 className="text-lg font-semibold text-green-950">
                         Application Status
                     </h2>
-                    <p className="mt-1 text-sm text-slate-500">
+                    <p className="mt-1 text-sm text-stone-600">
                         Breakdown of your applications by status.
                     </p>
                 </div>
@@ -143,10 +141,10 @@ function AnalyticsPage() {
                         return (
                             <div
                                 key={stat.status}
-                                className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5"
+                                className="min-w-0 rounded-xl border border-green-900/10 bg-white p-4 shadow-sm sm:p-5"
                             >
                                 <div className="flex items-center justify-between gap-3">
-                                    <p className="text-sm font-medium text-slate-500">
+                                    <p className="text-sm font-medium text-stone-600">
                                         {stat.label}
                                     </p>
                                     <div className={`rounded-lg p-2 ${stat.color}`}>
@@ -154,11 +152,11 @@ function AnalyticsPage() {
                                     </div>
                                 </div>
 
-                                <p className="mt-4 text-2xl font-bold text-slate-900">
+                                <p className="mt-4 text-2xl font-bold text-green-950">
                                     {stat.count}
                                 </p>
 
-                                <p className="mt-1 text-xs text-slate-400">
+                                <p className="mt-1 text-xs text-stone-500">
                                     {totalApplications
                                         ? Math.round((stat.count / totalApplications) * 100)
                                         : 0}

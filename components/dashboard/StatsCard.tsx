@@ -19,29 +19,29 @@ function StatsCard({ total, applied, interviews, offers }: Props) {
             label: "Total Applications",
             value: total,
             icon: BriefcaseBusiness,
-            color: "text-slate-700",
-            iconBg: "bg-slate-100",
+            color: "text-green-950",
+            iconBg: "bg-green-100",
         },
         {
             label: "Applied",
             value: applied,
             icon: Send,
-            color: "text-blue-600",
-            iconBg: "bg-blue-50",
+            color: "text-green-700",
+            iconBg: "bg-green-50",
         },
         {
             label: "Interviews",
             value: interviews,
             icon: CalendarCheck,
-            color: "text-amber-600",
+            color: "text-amber-700",
             iconBg: "bg-amber-50",
         },
         {
             label: "Offers",
             value: offers,
             icon: Trophy,
-            color: "text-emerald-600",
-            iconBg: "bg-emerald-50",
+            color: "text-lime-700",
+            iconBg: "bg-lime-100",
         },
     ];
 
@@ -53,10 +53,10 @@ function StatsCard({ total, applied, interviews, offers }: Props) {
                 return (
                     <div
                         key={stat.label}
-                        className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md sm:p-5"
+                        className="min-w-0 rounded-xl border border-green-900/10 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-5"
                     >
                         <div className="flex items-center justify-between gap-3">
-                            <p className="text-xs font-medium text-slate-500 sm:text-sm">
+                            <p className="text-xs font-medium text-stone-500 sm:text-sm">
                                 {stat.label}
                             </p>
 

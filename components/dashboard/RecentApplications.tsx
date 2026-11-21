@@ -1,3 +1,4 @@
+
 import Link from "next/link"
 import { Application } from "@/lib/data/applications"
 
@@ -6,42 +7,84 @@ interface Props {
 }
 
 function RecentApplications({ applications }: Props) {
-
     const recentApplications = applications.slice(0, 5)
 
     return (
-        <div className="rounded-xl border bg-white shadow-sm">
-
-            <div className="flex items-center justify-between border-b p-5">
+        <div className="rounded-xl border border-green-900/10 bg-white shadow-sm">
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-green-900/10 p-5">
                 <div>
-                    <h2 className="text-lg font-semibold text-gray-900">Recent Applications</h2>
-                    <p className="text-sm text-gray-500">Your latest job applications.</p>
+                    <h2 className="text-lg font-semibold text-green-950">
+                        Recent Applications
+                    </h2>
+                    <p className="text-sm text-stone-500">
+                        Your latest job applications.
+                    </p>
                 </div>
 
-                <Link href="dashboard/applications" className="text-sm font-medium text-indigo-600 hover:underline">
+                <Link
+                    href="/dashboard/applications"
+                    className="text-sm font-medium text-green-800 transition-colors hover:text-green-950 hover:underline"
+                >
                     View All
                 </Link>
             </div>
 
-            <div className="divide-y">
+            {/* Applications */}
+            <div className="divide-y divide-stone-100">
                 {recentApplications.map((recentApplication) => (
-                    <Link key={recentApplication.id} href={`/dashboard/applications/${recentApplication.id}`} className="flex items-center gap-3 justify-between p-5 transition hover:bg-gray-50">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 font-bold text-indigo-600">
-                            <p>{recentApplication.company.charAt(0)}</p>
+                    <Link
+                        key={recentApplication.id}
+                        href={`/dashboard/applications/${recentApplication.id}`}
+                        className="flex items-center justify-between gap-3 p-5 transition-colors hover:bg-stone-50"
+                    >
+                        {/* Company initial */}
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-green-100 font-bold text-green-800">
+                            <span>
+                                {recentApplication.company.charAt(0)}
+                            </span>
                         </div>
+
+                        {/* Company and position */}
                         <div className="min-w-0 flex-1">
-                            <p className="truncate text-medium font-semibold">{recentApplication.company}</p>
-                            <p className="truncate text-sm text-slate-500">{recentApplication.position}</p>
+                            <p className="truncate text-sm font-semibold text-green-950">
+                                {recentApplication.company}
+                            </p>
+                            <p className="truncate text-sm text-stone-500">
+                                {recentApplication.position}
+                            </p>
                         </div>
-                        <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${recentApplication.status === "APPLIED" ?
-                            "bg-blue-50 text-blue-700" : recentApplication.status === "INTERVIEW" ?
-                                "bg-amber-50 text-amber-700" : recentApplication.status === "OFFER" ?
-                                    "bg-emerald-50 text-emerald-700" : recentApplication.status === "SAVED" ?
-                                        "bg-slate-100 text-slate-600" : "bg-red-50 text-red-600"
-                            }`}>{recentApplication.status}</span>
+
+                        {/* Application status */}
+                        <span
+                            className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium ${recentApplication.status === "APPLIED"
+                                    ? "bg-blue-50 text-blue-700"
+                                    : recentApplication.status === "INTERVIEW"
+                                        ? "bg-amber-50 text-amber-700"
+                                        : recentApplication.status === "OFFER"
+                                            ? "bg-green-100 text-green-800"
+                                            : recentApplication.status === "SAVED"
+                                                ? "bg-stone-100 text-stone-600"
+                                                : "bg-red-50 text-red-600"
+                                }`}
+                        >
+                            {recentApplication.status}
+                        </span>
                     </Link>
                 ))}
             </div>
+
+            {/* Empty state */}
+            {recentApplications.length === 0 && (
+                <div className="p-8 text-center">
+                    <p className="text-sm font-medium text-green-950">
+                        No applications yet
+                    </p>
+                    <p className="mt-1 text-sm text-stone-500">
+                        Start tracking your job search by adding your first application.
+                    </p>
+                </div>
+            )}
         </div>
     )
 }
