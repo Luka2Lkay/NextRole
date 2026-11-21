@@ -1,7 +1,16 @@
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+
 import Navbar from "@/components/dashboard/Navbar";
 import Footer from "@/components/dashboard/Footer";
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
+    const { userId } = await auth();
+
+    if (!userId) {
+        redirect("/sign-in?redirect_url=/dashboard");
+    }
+
     return (
         <div className="min-h-screen bg-slate-50">
             <Navbar />
