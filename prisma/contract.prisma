@@ -1,0 +1,30 @@
+
+ // use prisma-8
+
+  enum ApplicationStatus {
+    SAVED
+    APPLIED
+    INTERVIEW
+    OFFER
+    REJECTED
+    WITHDRAWN
+  }
+
+namespace public {
+
+  model Application {
+    id        Int            @id @default(autoincrement())
+    company   String
+    position  String
+    location  String?
+    salary    String?
+    status    ApplicationStatus @default(SAVED)
+    jobUrl    String?
+    notes     String?
+    appliedAt DateTime?
+    createdAt DateTime          @default(now())
+    updatedAt DateTime          @onUpdate(now())
+
+    @@map("applications")
+  }
+}

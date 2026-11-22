@@ -6,6 +6,11 @@
         "Sandton",
         "applicationmanagement",
         "Luka",
-        "Lkay"
+        "Lkay",
+        "unboundedint",
+        "timestamptz",
+        "timetz",
+        "Nowait",
+        "autoincrement"
     ]
 }
