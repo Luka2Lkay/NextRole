@@ -6,7 +6,7 @@ function NewApplicationPage() {
     return (
         <main className="min-w-0 bg-stone-50 p-4 sm:p-6 lg:p-8">
             <div className="mx-auto w-full max-w-3xl">
-                {/* Back navigation */}
+        
                 <Link
                     href="/dashboard/applications"
                     className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-stone-500 transition hover:text-green-900"
@@ -15,7 +15,6 @@ function NewApplicationPage() {
                     Back to applications
                 </Link>
 
-                {/* Form container */}
                 <div className="rounded-xl border border-stone-200 bg-white p-4 shadow-sm sm:p-6 lg:p-8">
                     {/* Heading */}
                     <div className="mb-8">
@@ -66,7 +65,6 @@ function NewApplicationPage() {
                             </div>
                         </div>
 
-                        {/* Location and Job URL */}
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                             <div>
                                 <label
@@ -101,7 +99,6 @@ function NewApplicationPage() {
                             </div>
                         </div>
 
-                        {/* Status */}
                         <div>
                             <label
                                 htmlFor="status"
@@ -123,7 +120,6 @@ function NewApplicationPage() {
                             </select>
                         </div>
 
-                        {/* Notes */}
                         <div>
                             <label
                                 htmlFor="notes"
@@ -140,7 +136,6 @@ function NewApplicationPage() {
                             />
                         </div>
 
-                        {/* Submit */}
                         <div className="flex flex-col-reverse gap-3 border-t border-stone-100 pt-6 sm:flex-row sm:justify-end">
                             <Link
                                 href="/dashboard/applications"

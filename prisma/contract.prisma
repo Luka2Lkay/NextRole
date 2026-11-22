@@ -7,6 +7,7 @@
     INTERVIEW
     OFFER
     REJECTED
+    WITHDRAWN
   }
 
 namespace public {
