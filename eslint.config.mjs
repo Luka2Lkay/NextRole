@@ -9,7 +9,11 @@ const eslintConfig = defineConfig([
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".agents/**",
+    ".claude/**",
+    ".cursor/**",
+    ".devin/**",
     ".next/**",
+    "prisma/contract.d.ts",
     "out/**",
     "build/**",
     "next-env.d.ts",
