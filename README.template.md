@@ -21,11 +21,9 @@ The current version focuses on building the core dashboard and applicationmanage
 Provides an overview of the user's job search, including:
 
 - Total applications
-- Applications submitted
-- Interviews
-- Offers
-- Application status breakdown
 - Recent applications
+- Applications submitted
+- Application status breakdown
 
 ### Application Tracking
 
@@ -44,16 +42,6 @@ Users will be able to:
 Applications can move through different stages:
 
 **_Saved -> Applied -> Interview -> Offer/Rejected_**
-
-### Analytics
-
-The application will eventually provide insights into the user's job search, such as:
-
-- Applications by status
-- Interview activity
-- Offers
-- Application trends
-- Job-search progress
 
 ### Tech Stack
 
