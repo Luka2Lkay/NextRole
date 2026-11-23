@@ -11,6 +11,7 @@
         "timestamptz",
         "timetz",
         "Nowait",
-        "autoincrement"
+        "autoincrement",
+        "PNET"
     ]
 }
