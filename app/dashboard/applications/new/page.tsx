@@ -40,7 +40,7 @@ function NewApplicationPage() {
                                         id="company"
                                         name="company"
                                         type="text"
-                                        placeholder="e.g. Google"
+                                        placeholder="e.g. Capitec Bank"
                                         required
                                         className="w-full rounded-lg border border-stone-300 px-4 py-3 text-sm text-stone-900 outline-none transition placeholder:text-stone-400 focus:border-green-700 focus:ring-2 focus:ring-green-100"
                                     />
@@ -83,7 +83,6 @@ function NewApplicationPage() {
                                         defaultValue=""
                                         className="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-sm text-stone-900 outline-none transition focus:border-green-700 focus:ring-2 focus:ring-green-100"
                                     >
-                                        <option value="" disabled>Select employment type</option>
                                         <option value="FULL_TIME">Full-time</option>
                                         <option value="PART_TIME">Part-time</option>
                                         <option value="CONTRACT">Contract</option>

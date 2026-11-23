@@ -10,6 +10,25 @@
     WITHDRAWN
   }
 
+    enum EmploymentType {
+    FULL_TIME
+    PART_TIME
+    CONTRACT
+    INTERNSHIP
+    TEMPORARY
+    FREELANCE
+  }
+
+  enum ApplicationSource {
+    LINKEDIN
+    INDEED
+    COMPANY_WEBSITE
+    REFERRAL
+    CAREERS24
+    PNET
+    OTHER
+  }
+
 namespace public {
 
   model Application {
@@ -17,11 +36,13 @@ namespace public {
     company   String
     position  String
     location  String?
+    EmploymentType EmploymentType @default(FULL_TIME)
     salary    String?
-    status    ApplicationStatus @default(SAVED)
     jobUrl    String?
-    notes     String?
+    status    ApplicationStatus @default(SAVED)
     appliedAt DateTime?
+    source    ApplicationSource
+    notes     String?
     createdAt DateTime          @default(now())
     updatedAt DateTime          @onUpdate(now())
 

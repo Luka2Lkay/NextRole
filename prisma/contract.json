@@ -13,6 +13,39 @@
     "namespaces": {
       "public": {
         "enum": {
+          "ApplicationSource": {
+            "codecId": "pg/text@1",
+            "members": [
+              {
+                "name": "LINKEDIN",
+                "value": "LINKEDIN"
+              },
+              {
+                "name": "INDEED",
+                "value": "INDEED"
+              },
+              {
+                "name": "COMPANY_WEBSITE",
+                "value": "COMPANY_WEBSITE"
+              },
+              {
+                "name": "REFERRAL",
+                "value": "REFERRAL"
+              },
+              {
+                "name": "CAREERS24",
+                "value": "CAREERS24"
+              },
+              {
+                "name": "PNET",
+                "value": "PNET"
+              },
+              {
+                "name": "OTHER",
+                "value": "OTHER"
+              }
+            ]
+          },
           "ApplicationStatus": {
             "codecId": "pg/text@1",
             "members": [
@@ -35,6 +68,39 @@
               {
                 "name": "REJECTED",
                 "value": "REJECTED"
+              },
+              {
+                "name": "WITHDRAWN",
+                "value": "WITHDRAWN"
+              }
+            ]
+          },
+          "EmploymentType": {
+            "codecId": "pg/text@1",
+            "members": [
+              {
+                "name": "FULL_TIME",
+                "value": "FULL_TIME"
+              },
+              {
+                "name": "PART_TIME",
+                "value": "PART_TIME"
+              },
+              {
+                "name": "CONTRACT",
+                "value": "CONTRACT"
+              },
+              {
+                "name": "INTERNSHIP",
+                "value": "INTERNSHIP"
+              },
+              {
+                "name": "TEMPORARY",
+                "value": "TEMPORARY"
+              },
+              {
+                "name": "FREELANCE",
+                "value": "FREELANCE"
               }
             ]
           }
@@ -42,6 +108,19 @@
         "models": {
           "Application": {
             "fields": {
+              "EmploymentType": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                },
+                "valueSet": {
+                  "entityKind": "enum",
+                  "entityName": "EmploymentType",
+                  "namespaceId": "public",
+                  "plane": "domain"
+                }
+              },
               "appliedAt": {
                 "nullable": true,
                 "type": {
@@ -111,6 +190,19 @@
                   "kind": "scalar"
                 }
               },
+              "source": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                },
+                "valueSet": {
+                  "entityKind": "enum",
+                  "entityName": "ApplicationSource",
+                  "namespaceId": "public",
+                  "plane": "domain"
+                }
+              },
               "status": {
                 "nullable": false,
                 "type": {
@@ -138,6 +230,9 @@
             "relations": {},
             "storage": {
               "fields": {
+                "EmploymentType": {
+                  "column": "EmploymentType"
+                },
                 "appliedAt": {
                   "column": "appliedAt"
                 },
@@ -165,6 +260,9 @@
                 "salary": {
                   "column": "salary"
                 },
+                "source": {
+                  "column": "source"
+                },
                 "status": {
                   "column": "status"
                 },
@@ -188,12 +286,37 @@
             "applications": {
               "checks": [
                 {
-                  "expression": "\"status\" IN ('SAVED', 'APPLIED', 'INTERVIEW', 'OFFER', 'REJECTED')",
-                  "name": "applications_status_check_f1e1150d",
+                  "expression": "\"EmploymentType\" IN ('FULL_TIME', 'PART_TIME', 'CONTRACT', 'INTERNSHIP', 'TEMPORARY', 'FREELANCE')",
+                  "name": "applications_EmploymentType_check_098a732d",
+                  "prefix": "applications_EmploymentType_check"
+                },
+                {
+                  "expression": "\"source\" IN ('LINKEDIN', 'INDEED', 'COMPANY_WEBSITE', 'REFERRAL', 'CAREERS24', 'PNET', 'OTHER')",
+                  "name": "applications_source_check_18ee59e0",
+                  "prefix": "applications_source_check"
+                },
+                {
+                  "expression": "\"status\" IN ('SAVED', 'APPLIED', 'INTERVIEW', 'OFFER', 'REJECTED', 'WITHDRAWN')",
+                  "name": "applications_status_check_27f7d825",
                   "prefix": "applications_status_check"
                 }
               ],
               "columns": {
+                "EmploymentType": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "default": {
+                    "kind": "literal",
+                    "value": "FULL_TIME"
+                  },
+                  "nullable": false,
+                  "valueSet": {
+                    "entityKind": "valueSet",
+                    "entityName": "EmploymentType",
+                    "namespaceId": "public",
+                    "plane": "storage"
+                  }
+                },
                 "appliedAt": {
                   "codecId": "pg/timestamptz-date@1",
                   "dataType": "pg/timestamptz",
@@ -253,6 +376,17 @@
                   "dataType": "pg/text",
                   "nullable": true
                 },
+                "source": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false,
+                  "valueSet": {
+                    "entityKind": "valueSet",
+                    "entityName": "ApplicationSource",
+                    "namespaceId": "public",
+                    "plane": "storage"
+                  }
+                },
                 "status": {
                   "codecId": "pg/text@1",
                   "dataType": "pg/text",
@@ -288,6 +422,18 @@
             }
           },
           "valueSet": {
+            "ApplicationSource": {
+              "kind": "valueSet",
+              "values": [
+                "LINKEDIN",
+                "INDEED",
+                "COMPANY_WEBSITE",
+                "REFERRAL",
+                "CAREERS24",
+                "PNET",
+                "OTHER"
+              ]
+            },
             "ApplicationStatus": {
               "kind": "valueSet",
               "values": [
@@ -295,7 +441,19 @@
                 "APPLIED",
                 "INTERVIEW",
                 "OFFER",
-                "REJECTED"
+                "REJECTED",
+                "WITHDRAWN"
+              ]
+            },
+            "EmploymentType": {
+              "kind": "valueSet",
+              "values": [
+                "FULL_TIME",
+                "PART_TIME",
+                "CONTRACT",
+                "INTERNSHIP",
+                "TEMPORARY",
+                "FREELANCE"
               ]
             }
           }
@@ -304,7 +462,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "9ecd6cdea30ec8376a6fd7deda3d5300b5ceb2e36368d84e82a68f9c594b3c55"
+    "storageHash": "f94e85d02fec2a5684981cead3f21423d4202c3dca9764b2f66b1cedafffa269"
   },
   "execution": {
     "executionHash": "92d2f64f962772a68a2b76bc785d5a768b871f16dde542b3e8a29114691d61ea",
