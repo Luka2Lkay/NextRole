@@ -23,7 +23,7 @@ import type {
 } from '@prisma/orm-postgres/contract/types';
 
 export type StorageHash =
-  StorageHashBase<'9ecd6cdea30ec8376a6fd7deda3d5300b5ceb2e36368d84e82a68f9c594b3c55'>;
+  StorageHashBase<'f94e85d02fec2a5684981cead3f21423d4202c3dca9764b2f66b1cedafffa269'>;
 export type ExecutionHash =
   ExecutionHashBase<'92d2f64f962772a68a2b76bc785d5a768b871f16dde542b3e8a29114691d61ea'>;
 export type ProfileHash =
@@ -279,9 +279,21 @@ type FieldTypeOverrides = {
   readonly public: {
     readonly models: {
       readonly Application: {
+        readonly EmploymentType: {
+          readonly output:
+            'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'INTERNSHIP' | 'TEMPORARY' | 'FREELANCE';
+          readonly input:
+            'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'INTERNSHIP' | 'TEMPORARY' | 'FREELANCE';
+        };
+        readonly source: {
+          readonly output:
+            'LINKEDIN' | 'INDEED' | 'COMPANY_WEBSITE' | 'REFERRAL' | 'CAREERS24' | 'PNET' | 'OTHER';
+          readonly input:
+            'LINKEDIN' | 'INDEED' | 'COMPANY_WEBSITE' | 'REFERRAL' | 'CAREERS24' | 'PNET' | 'OTHER';
+        };
         readonly status: {
-          readonly output: 'SAVED' | 'APPLIED' | 'INTERVIEW' | 'OFFER' | 'REJECTED';
-          readonly input: 'SAVED' | 'APPLIED' | 'INTERVIEW' | 'OFFER' | 'REJECTED';
+          readonly output: 'SAVED' | 'APPLIED' | 'INTERVIEW' | 'OFFER' | 'REJECTED' | 'WITHDRAWN';
+          readonly input: 'SAVED' | 'APPLIED' | 'INTERVIEW' | 'OFFER' | 'REJECTED' | 'WITHDRAWN';
         };
       };
     };
@@ -306,9 +318,21 @@ export type FieldInputTypes = FieldTypesFromDomain<
 type ColumnTypeOverrides = {
   readonly public: {
     readonly applications: {
+      readonly EmploymentType: {
+        readonly output:
+          'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'INTERNSHIP' | 'TEMPORARY' | 'FREELANCE';
+        readonly input:
+          'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'INTERNSHIP' | 'TEMPORARY' | 'FREELANCE';
+      };
+      readonly source: {
+        readonly output:
+          'LINKEDIN' | 'INDEED' | 'COMPANY_WEBSITE' | 'REFERRAL' | 'CAREERS24' | 'PNET' | 'OTHER';
+        readonly input:
+          'LINKEDIN' | 'INDEED' | 'COMPANY_WEBSITE' | 'REFERRAL' | 'CAREERS24' | 'PNET' | 'OTHER';
+      };
       readonly status: {
-        readonly output: 'SAVED' | 'APPLIED' | 'INTERVIEW' | 'OFFER' | 'REJECTED';
-        readonly input: 'SAVED' | 'APPLIED' | 'INTERVIEW' | 'OFFER' | 'REJECTED';
+        readonly output: 'SAVED' | 'APPLIED' | 'INTERVIEW' | 'OFFER' | 'REJECTED' | 'WITHDRAWN';
+        readonly input: 'SAVED' | 'APPLIED' | 'INTERVIEW' | 'OFFER' | 'REJECTED' | 'WITHDRAWN';
       };
     };
   };
@@ -330,6 +354,7 @@ export type StorageColumnInputTypes = ColumnTypesFromStorage<
 
 export namespace Models {
   export type public_Application = {
+    EmploymentType: FieldOutputTypes['public']['Application']['EmploymentType'];
     appliedAt: FieldOutputTypes['public']['Application']['appliedAt'];
     company: FieldOutputTypes['public']['Application']['company'];
     createdAt: FieldOutputTypes['public']['Application']['createdAt'];
@@ -339,6 +364,7 @@ export namespace Models {
     notes: FieldOutputTypes['public']['Application']['notes'];
     position: FieldOutputTypes['public']['Application']['position'];
     salary: FieldOutputTypes['public']['Application']['salary'];
+    source: FieldOutputTypes['public']['Application']['source'];
     status: FieldOutputTypes['public']['Application']['status'];
     updatedAt: FieldOutputTypes['public']['Application']['updatedAt'];
     readonly [RelationKeys]?: never;
@@ -371,6 +397,16 @@ type ContractBase = Omit<
           readonly table: {
             readonly applications: {
               columns: {
+                readonly EmploymentType: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly default: {
+                    readonly kind: 'literal';
+                    readonly value: DefaultLiteralValue<'pg/text@1', 'FULL_TIME'>;
+                  };
+                  readonly many: false;
+                };
                 readonly appliedAt: {
                   readonly dataType: 'pg/timestamptz';
                   readonly codecId: 'pg/timestamptz-date@1';
@@ -432,6 +468,12 @@ type ContractBase = Omit<
                   readonly nullable: true;
                   readonly many: false;
                 };
+                readonly source: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
                 readonly status: {
                   readonly dataType: 'pg/text';
                   readonly codecId: 'pg/text@1';
@@ -457,9 +499,39 @@ type ContractBase = Omit<
             };
           };
           readonly valueSet: {
+            readonly ApplicationSource: {
+              readonly kind: 'valueSet';
+              readonly values: readonly [
+                'LINKEDIN',
+                'INDEED',
+                'COMPANY_WEBSITE',
+                'REFERRAL',
+                'CAREERS24',
+                'PNET',
+                'OTHER',
+              ];
+            };
             readonly ApplicationStatus: {
               readonly kind: 'valueSet';
-              readonly values: readonly ['SAVED', 'APPLIED', 'INTERVIEW', 'OFFER', 'REJECTED'];
+              readonly values: readonly [
+                'SAVED',
+                'APPLIED',
+                'INTERVIEW',
+                'OFFER',
+                'REJECTED',
+                'WITHDRAWN',
+              ];
+            };
+            readonly EmploymentType: {
+              readonly kind: 'valueSet';
+              readonly values: readonly [
+                'FULL_TIME',
+                'PART_TIME',
+                'CONTRACT',
+                'INTERNSHIP',
+                'TEMPORARY',
+                'FREELANCE',
+              ];
             };
           };
         };
@@ -483,6 +555,10 @@ type ContractBase = Omit<
         readonly models: {
           readonly Application: {
             readonly fields: {
+              readonly EmploymentType: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
               readonly appliedAt: {
                 readonly nullable: true;
                 readonly type: {
@@ -527,6 +603,10 @@ type ContractBase = Omit<
                 readonly nullable: true;
                 readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
               };
+              readonly source: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
               readonly status: {
                 readonly nullable: false;
                 readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
@@ -545,6 +625,7 @@ type ContractBase = Omit<
               readonly table: 'applications';
               readonly namespaceId: 'public';
               readonly fields: {
+                readonly EmploymentType: { readonly column: 'EmploymentType' };
                 readonly appliedAt: { readonly column: 'appliedAt' };
                 readonly company: { readonly column: 'company' };
                 readonly createdAt: { readonly column: 'createdAt' };
@@ -554,6 +635,7 @@ type ContractBase = Omit<
                 readonly notes: { readonly column: 'notes' };
                 readonly position: { readonly column: 'position' };
                 readonly salary: { readonly column: 'salary' };
+                readonly source: { readonly column: 'source' };
                 readonly status: { readonly column: 'status' };
                 readonly updatedAt: { readonly column: 'updatedAt' };
               };
@@ -561,6 +643,18 @@ type ContractBase = Omit<
           };
         };
         readonly enum: {
+          readonly ApplicationSource: {
+            readonly codecId: 'pg/text@1';
+            readonly members: readonly [
+              { readonly name: 'LINKEDIN'; readonly value: 'LINKEDIN' },
+              { readonly name: 'INDEED'; readonly value: 'INDEED' },
+              { readonly name: 'COMPANY_WEBSITE'; readonly value: 'COMPANY_WEBSITE' },
+              { readonly name: 'REFERRAL'; readonly value: 'REFERRAL' },
+              { readonly name: 'CAREERS24'; readonly value: 'CAREERS24' },
+              { readonly name: 'PNET'; readonly value: 'PNET' },
+              { readonly name: 'OTHER'; readonly value: 'OTHER' },
+            ];
+          };
           readonly ApplicationStatus: {
             readonly codecId: 'pg/text@1';
             readonly members: readonly [
@@ -569,16 +663,46 @@ type ContractBase = Omit<
               { readonly name: 'INTERVIEW'; readonly value: 'INTERVIEW' },
               { readonly name: 'OFFER'; readonly value: 'OFFER' },
               { readonly name: 'REJECTED'; readonly value: 'REJECTED' },
+              { readonly name: 'WITHDRAWN'; readonly value: 'WITHDRAWN' },
+            ];
+          };
+          readonly EmploymentType: {
+            readonly codecId: 'pg/text@1';
+            readonly members: readonly [
+              { readonly name: 'FULL_TIME'; readonly value: 'FULL_TIME' },
+              { readonly name: 'PART_TIME'; readonly value: 'PART_TIME' },
+              { readonly name: 'CONTRACT'; readonly value: 'CONTRACT' },
+              { readonly name: 'INTERNSHIP'; readonly value: 'INTERNSHIP' },
+              { readonly name: 'TEMPORARY'; readonly value: 'TEMPORARY' },
+              { readonly name: 'FREELANCE'; readonly value: 'FREELANCE' },
             ];
           };
         };
         readonly enumMemberTypes?: {
+          readonly ApplicationSource: readonly [
+            { readonly name: 'LINKEDIN'; readonly value: 'LINKEDIN' },
+            { readonly name: 'INDEED'; readonly value: 'INDEED' },
+            { readonly name: 'COMPANY_WEBSITE'; readonly value: 'COMPANY_WEBSITE' },
+            { readonly name: 'REFERRAL'; readonly value: 'REFERRAL' },
+            { readonly name: 'CAREERS24'; readonly value: 'CAREERS24' },
+            { readonly name: 'PNET'; readonly value: 'PNET' },
+            { readonly name: 'OTHER'; readonly value: 'OTHER' },
+          ];
           readonly ApplicationStatus: readonly [
             { readonly name: 'SAVED'; readonly value: 'SAVED' },
             { readonly name: 'APPLIED'; readonly value: 'APPLIED' },
             { readonly name: 'INTERVIEW'; readonly value: 'INTERVIEW' },
             { readonly name: 'OFFER'; readonly value: 'OFFER' },
             { readonly name: 'REJECTED'; readonly value: 'REJECTED' },
+            { readonly name: 'WITHDRAWN'; readonly value: 'WITHDRAWN' },
+          ];
+          readonly EmploymentType: readonly [
+            { readonly name: 'FULL_TIME'; readonly value: 'FULL_TIME' },
+            { readonly name: 'PART_TIME'; readonly value: 'PART_TIME' },
+            { readonly name: 'CONTRACT'; readonly value: 'CONTRACT' },
+            { readonly name: 'INTERNSHIP'; readonly value: 'INTERNSHIP' },
+            { readonly name: 'TEMPORARY'; readonly value: 'TEMPORARY' },
+            { readonly name: 'FREELANCE'; readonly value: 'FREELANCE' },
           ];
         };
       };
