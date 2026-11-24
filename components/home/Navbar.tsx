@@ -45,7 +45,7 @@ function Navbar() {
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between sm:h-20">
-          {/* Logo */}
+
           <Link
             href="/"
             onClick={closeMenu}
@@ -60,7 +60,6 @@ function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop navigation */}
           <div className="hidden items-center gap-9 text-sm font-semibold text-stone-600 md:flex">
             {navLinks.map((link) => (
               <a
@@ -94,7 +93,6 @@ function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <button
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -107,7 +105,6 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Mobile navigation */}
         {isMenuOpen && (
           <div
             id="mobile-navigation"
