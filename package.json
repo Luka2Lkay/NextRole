@@ -13,28 +13,28 @@
     "postinstall": "prisma skills sync || exit 0"
   },
   "dependencies": {
-    "@clerk/nextjs": "^7.10.4",
+    "@clerk/nextjs": "^7.10.7",
     "@prisma/adapter-neon": "^7.10.1",
     "@prisma/orm-postgres": "^8.0.0-rc.25",
     "cspell": "^10.5.2",
-    "lucide-react": "^1.75.0",
+    "lucide-react": "^1.77.0",
     "next": "16.4.6",
     "pg": "^8.23.1",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^26",
     "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "dotenv": "^18.0.10",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.5",
+    "eslint": "^10",
+    "eslint-config-next": "16.4.6",
     "prisma": "^8.0.0-rc.35",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^7"
   },
   "allowScripts": {
     "esbuild@0.28.2": true,
