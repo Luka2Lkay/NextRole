@@ -35,12 +35,12 @@ namespace public {
     company   String
     position  String
     location  String?
-    EmploymentType EmploymentType @default(FULL_TIME)
+    employmentType EmploymentType @default(FULL_TIME)
     salary    String?
     jobUrl    String?
     status    ApplicationStatus @default(SAVED)
     appliedAt DateTime?
-    source    ApplicationSource
+    source    ApplicationSource @default(OTHER)
     notes     String?
     createdAt DateTime          @default(now())
     updatedAt DateTime          @onUpdate(now())
