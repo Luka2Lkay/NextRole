@@ -47,6 +47,12 @@ Applications can move through different stages:
 
 - Next.js
 - Tailwind
+- TypeScript
+- React
+- Clerk
+- Prisma
+- PostgreSQL
+- Neon
 
 ### Getting Started
 

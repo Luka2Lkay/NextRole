@@ -59,6 +59,19 @@ const generateTree = (directory, prefix = "") => {
     "README.md",
     "README.template.md",
     "tsconfig.json",
+    ".devin",
+    "migrations",
+    "public",
+    ".env",
+    ".env.local",
+    "cspell.json",
+    "prisma.config.ts",
+    "proxy.ts",
+    "tsconfig.tsbuildinfo",
+    "assets",
+    ".cursor",
+    ".claude",
+    ".agents",
   ]);
 
   const entries = fs
@@ -98,6 +111,8 @@ const stack = generateTechnologyList(installedPackages, technologies);
 const version = packageJson.version;
 
 const tree = generateTree(ROOT_DIR);
+
+console.log("tree", tree);
 
 let readme = fs.readFileSync(readmeTemplatePath, "utf-8");
 
