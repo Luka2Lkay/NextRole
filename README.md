@@ -56,6 +56,7 @@ Applications can move through different stages:
 
 ### Project Structure
 
+```
 ├──app/
 |   ├──(auth)/
 |   |   ├──sign-in/
@@ -108,6 +109,7 @@ Applications can move through different stages:
    |   └──technologies.json
    └──generate_readme.js
 
+```
 
 ### Getting Started
 
