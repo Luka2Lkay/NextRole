@@ -1,8 +1,16 @@
+"use client"
 
 import Link from "next/link";
 import { ArrowLeft, Plus } from "lucide-react";
+import { useActionState } from "react";
+import { createApplication, type ApplicationFormState } from "@/app/actions/applications";
+
+const initialState: ApplicationFormState = { error: null }
 
 function NewApplicationPage() {
+
+    const [state, formAction, isPending] = useActionState(createApplication, initialState);
+
     return (
         <main className="min-w-0 bg-stone-50 p-4 sm:p-6 lg:p-8">
             <div className="mx-auto w-full max-w-3xl">
@@ -25,7 +33,15 @@ function NewApplicationPage() {
                         </p>
                     </div>
 
-                    <form className="space-y-6">
+                    <form action={formAction} className="space-y-6">
+                        {state.error && (
+                            <div
+                                role="alert"
+                                className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+                            >
+                                {state.error}
+                            </div>
+                        )}
                         <div>
                             <h2 className="mb-4 text-base font-semibold text-green-950">
                                 Job Information
@@ -80,7 +96,7 @@ function NewApplicationPage() {
                                     <select
                                         id="employmentType"
                                         name="employmentType"
-                                        defaultValue=""
+                                        defaultValue="FULL_TIME"
                                         className="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-sm text-stone-900 outline-none transition focus:border-green-700 focus:ring-2 focus:ring-green-100"
                                     >
                                         <option value="FULL_TIME">Full-time</option>
@@ -164,17 +180,16 @@ function NewApplicationPage() {
                                     <select
                                         id="source"
                                         name="source"
-                                        defaultValue=""
+                                        defaultValue="OTHER"
                                         className="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-sm text-stone-900 outline-none transition focus:border-green-700 focus:ring-2 focus:ring-green-100"
                                     >
-                                        <option value="" disabled>Select where you found this job</option>
+                                        <option value="OTHER">Other</option>
                                         <option value="LINKEDIN">LinkedIn</option>
                                         <option value="INDEED">Indeed</option>
                                         <option value="COMPANY_WEBSITE">Company Website</option>
                                         <option value="REFERRAL">Referral</option>
                                         <option value="CAREERS24">Careers24</option>
                                         <option value="PNET">PNet</option>
-                                        <option value="OTHER">Other</option>
                                     </select>
                                 </div>
                             </div>
@@ -209,11 +224,13 @@ function NewApplicationPage() {
 
                             <button
                                 type="submit"
-                                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-green-950 px-5 py-3 text-sm font-semibold text-lime-300 transition hover:bg-green-900 sm:w-auto"
+                                disabled={isPending}
+                                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-green-950 px-5 py-3 text-sm font-semibold text-lime-300 transition hover:bg-green-900 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                             >
                                 <Plus size={17} />
-                                Add Application
+                                {isPending ? "Saving..." : "Add Application"}
                             </button>
+
                         </div>
                     </form>
                 </div>

@@ -3,27 +3,22 @@
 // To regenerate, run: prisma contract emit
 import type {
   CodecTypes as PgTypes,
-  ParameterizedOutputTypesForTypeParams as PgParameterizedOutputTypes,
-} from '@prisma/orm-postgres/target/codec-types';
-import type { QueryOperationTypes as PgTargetQueryOps } from '@prisma/orm-postgres/target/operation-types';
-
-import type {
   ColumnTypesFromStorage,
-  ContractWithTypeMaps,
-  RelationKeys,
-  TypeMaps as TypeMapsType,
-} from '@prisma/orm-postgres/family-contract/types';
-import type {
   Contract as ContractType,
+  ContractWithTypeMaps,
   ExecutionHashBase,
   FieldTypesFromDomain,
   NamespaceId,
+  ParameterizedOutputTypesForTypeParams as PgParameterizedOutputTypes,
   ProfileHashBase,
+  QueryOperationTypes as PgTargetQueryOps,
+  RelationKeys,
   StorageHashBase,
-} from '@prisma/orm-postgres/contract/types';
+  TypeMaps as TypeMapsType,
+} from '@prisma/orm-postgres/contract-types';
 
 export type StorageHash =
-  StorageHashBase<'f94e85d02fec2a5684981cead3f21423d4202c3dca9764b2f66b1cedafffa269'>;
+  StorageHashBase<'fbc68c38f13dab37901e4f06728eb204c6736f96de68c1deaeee8020bba01d71'>;
 export type ExecutionHash =
   ExecutionHashBase<'92d2f64f962772a68a2b76bc785d5a768b871f16dde542b3e8a29114691d61ea'>;
 export type ProfileHash =
@@ -35,14 +30,14 @@ export type QueryOperationTypes = PgTargetQueryOps<CodecTypes>;
 export type AggregateTypes = {
   readonly avg: {
     readonly byCodec: {
-      readonly 'pg/float@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
       readonly 'pg/float4@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
       readonly 'pg/float8@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
-      readonly 'pg/int@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
+      readonly 'pg/float@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
       readonly 'pg/int2@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
       readonly 'pg/int4@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
       readonly 'pg/int8@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
       readonly 'pg/int8number@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
+      readonly 'pg/int@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
       readonly 'pg/interval-string@1': {
         readonly output: 'pg/interval-string@1';
         readonly nullable: true;
@@ -58,11 +53,11 @@ export type AggregateTypes = {
   };
   readonly avgDecimal: {
     readonly byCodec: {
-      readonly 'pg/int@1': { readonly output: 'pg/numeric@1'; readonly nullable: true };
       readonly 'pg/int2@1': { readonly output: 'pg/numeric@1'; readonly nullable: true };
       readonly 'pg/int4@1': { readonly output: 'pg/numeric@1'; readonly nullable: true };
       readonly 'pg/int8@1': { readonly output: 'pg/numeric@1'; readonly nullable: true };
       readonly 'pg/int8number@1': { readonly output: 'pg/numeric@1'; readonly nullable: true };
+      readonly 'pg/int@1': { readonly output: 'pg/numeric@1'; readonly nullable: true };
       readonly 'pg/numeric@1': { readonly output: 'pg/numeric@1'; readonly nullable: true };
       readonly 'pg/unboundedint@1': { readonly output: 'pg/numeric@1'; readonly nullable: true };
       readonly 'sql/int@1': { readonly output: 'pg/numeric@1'; readonly nullable: true };
@@ -87,15 +82,15 @@ export type AggregateTypes = {
         readonly nullable: true;
       };
       readonly 'pg/enum@1': { readonly output: 'pg/enum@1'; readonly nullable: true };
-      readonly 'pg/float@1': { readonly output: 'pg/float@1'; readonly nullable: true };
       readonly 'pg/float4@1': { readonly output: 'pg/float4@1'; readonly nullable: true };
       readonly 'pg/float8@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
+      readonly 'pg/float@1': { readonly output: 'pg/float@1'; readonly nullable: true };
       readonly 'pg/inet@1': { readonly output: 'pg/inet@1'; readonly nullable: true };
-      readonly 'pg/int@1': { readonly output: 'pg/int@1'; readonly nullable: true };
       readonly 'pg/int2@1': { readonly output: 'pg/int2@1'; readonly nullable: true };
       readonly 'pg/int4@1': { readonly output: 'pg/int4@1'; readonly nullable: true };
       readonly 'pg/int8@1': { readonly output: 'pg/int8@1'; readonly nullable: true };
       readonly 'pg/int8number@1': { readonly output: 'pg/int8number@1'; readonly nullable: true };
+      readonly 'pg/int@1': { readonly output: 'pg/int@1'; readonly nullable: true };
       readonly 'pg/interval-string@1': {
         readonly output: 'pg/interval-string@1';
         readonly nullable: true;
@@ -161,15 +156,15 @@ export type AggregateTypes = {
         readonly nullable: true;
       };
       readonly 'pg/enum@1': { readonly output: 'pg/enum@1'; readonly nullable: true };
-      readonly 'pg/float@1': { readonly output: 'pg/float@1'; readonly nullable: true };
       readonly 'pg/float4@1': { readonly output: 'pg/float4@1'; readonly nullable: true };
       readonly 'pg/float8@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
+      readonly 'pg/float@1': { readonly output: 'pg/float@1'; readonly nullable: true };
       readonly 'pg/inet@1': { readonly output: 'pg/inet@1'; readonly nullable: true };
-      readonly 'pg/int@1': { readonly output: 'pg/int@1'; readonly nullable: true };
       readonly 'pg/int2@1': { readonly output: 'pg/int2@1'; readonly nullable: true };
       readonly 'pg/int4@1': { readonly output: 'pg/int4@1'; readonly nullable: true };
       readonly 'pg/int8@1': { readonly output: 'pg/int8@1'; readonly nullable: true };
       readonly 'pg/int8number@1': { readonly output: 'pg/int8number@1'; readonly nullable: true };
+      readonly 'pg/int@1': { readonly output: 'pg/int@1'; readonly nullable: true };
       readonly 'pg/interval-string@1': {
         readonly output: 'pg/interval-string@1';
         readonly nullable: true;
@@ -228,14 +223,14 @@ export type AggregateTypes = {
   };
   readonly sum: {
     readonly byCodec: {
-      readonly 'pg/float@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
       readonly 'pg/float4@1': { readonly output: 'pg/float4@1'; readonly nullable: true };
       readonly 'pg/float8@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
-      readonly 'pg/int@1': { readonly output: 'pg/int8number@1'; readonly nullable: true };
+      readonly 'pg/float@1': { readonly output: 'pg/float8@1'; readonly nullable: true };
       readonly 'pg/int2@1': { readonly output: 'pg/int8number@1'; readonly nullable: true };
       readonly 'pg/int4@1': { readonly output: 'pg/int8number@1'; readonly nullable: true };
       readonly 'pg/int8@1': { readonly output: 'pg/int8number@1'; readonly nullable: true };
       readonly 'pg/int8number@1': { readonly output: 'pg/int8number@1'; readonly nullable: true };
+      readonly 'pg/int@1': { readonly output: 'pg/int8number@1'; readonly nullable: true };
       readonly 'pg/interval-string@1': {
         readonly output: 'pg/interval-string@1';
         readonly nullable: true;
@@ -255,11 +250,11 @@ export type AggregateTypes = {
   };
   readonly sumBigInt: {
     readonly byCodec: {
-      readonly 'pg/int@1': { readonly output: 'pg/int8@1'; readonly nullable: true };
       readonly 'pg/int2@1': { readonly output: 'pg/int8@1'; readonly nullable: true };
       readonly 'pg/int4@1': { readonly output: 'pg/int8@1'; readonly nullable: true };
       readonly 'pg/int8@1': { readonly output: 'pg/unboundedint@1'; readonly nullable: true };
       readonly 'pg/int8number@1': { readonly output: 'pg/unboundedint@1'; readonly nullable: true };
+      readonly 'pg/int@1': { readonly output: 'pg/int8@1'; readonly nullable: true };
       readonly 'pg/unboundedint@1': {
         readonly output: 'pg/unboundedint@1';
         readonly nullable: true;
@@ -279,7 +274,7 @@ type FieldTypeOverrides = {
   readonly public: {
     readonly models: {
       readonly Application: {
-        readonly EmploymentType: {
+        readonly employmentType: {
           readonly output:
             'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'INTERNSHIP' | 'TEMPORARY' | 'FREELANCE';
           readonly input:
@@ -318,7 +313,7 @@ export type FieldInputTypes = FieldTypesFromDomain<
 type ColumnTypeOverrides = {
   readonly public: {
     readonly applications: {
-      readonly EmploymentType: {
+      readonly employmentType: {
         readonly output:
           'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'INTERNSHIP' | 'TEMPORARY' | 'FREELANCE';
         readonly input:
@@ -354,10 +349,10 @@ export type StorageColumnInputTypes = ColumnTypesFromStorage<
 
 export namespace Models {
   export type public_Application = {
-    EmploymentType: FieldOutputTypes['public']['Application']['EmploymentType'];
     appliedAt: FieldOutputTypes['public']['Application']['appliedAt'];
     company: FieldOutputTypes['public']['Application']['company'];
     createdAt: FieldOutputTypes['public']['Application']['createdAt'];
+    employmentType: FieldOutputTypes['public']['Application']['employmentType'];
     id: FieldOutputTypes['public']['Application']['id'];
     jobUrl: FieldOutputTypes['public']['Application']['jobUrl'];
     location: FieldOutputTypes['public']['Application']['location'];
@@ -397,16 +392,6 @@ type ContractBase = Omit<
           readonly table: {
             readonly applications: {
               columns: {
-                readonly EmploymentType: {
-                  readonly dataType: 'pg/text';
-                  readonly codecId: 'pg/text@1';
-                  readonly nullable: false;
-                  readonly default: {
-                    readonly kind: 'literal';
-                    readonly value: DefaultLiteralValue<'pg/text@1', 'FULL_TIME'>;
-                  };
-                  readonly many: false;
-                };
                 readonly appliedAt: {
                   readonly dataType: 'pg/timestamptz';
                   readonly codecId: 'pg/timestamptz-date@1';
@@ -426,6 +411,16 @@ type ContractBase = Omit<
                   readonly nullable: false;
                   readonly default: { readonly kind: 'function'; readonly expression: 'now()' };
                   readonly typeParams: { readonly precision: 3 };
+                  readonly many: false;
+                };
+                readonly employmentType: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly default: {
+                    readonly kind: 'literal';
+                    readonly value: DefaultLiteralValue<'pg/text@1', 'FULL_TIME'>;
+                  };
                   readonly many: false;
                 };
                 readonly id: {
@@ -472,6 +467,10 @@ type ContractBase = Omit<
                   readonly dataType: 'pg/text';
                   readonly codecId: 'pg/text@1';
                   readonly nullable: false;
+                  readonly default: {
+                    readonly kind: 'literal';
+                    readonly value: DefaultLiteralValue<'pg/text@1', 'OTHER'>;
+                  };
                   readonly many: false;
                 };
                 readonly status: {
@@ -555,10 +554,6 @@ type ContractBase = Omit<
         readonly models: {
           readonly Application: {
             readonly fields: {
-              readonly EmploymentType: {
-                readonly nullable: false;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
-              };
               readonly appliedAt: {
                 readonly nullable: true;
                 readonly type: {
@@ -578,6 +573,10 @@ type ContractBase = Omit<
                   readonly codecId: 'pg/timestamptz-date@1';
                   readonly typeParams: { readonly precision: 3 };
                 };
+              };
+              readonly employmentType: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
               };
               readonly id: {
                 readonly nullable: false;
@@ -625,10 +624,10 @@ type ContractBase = Omit<
               readonly table: 'applications';
               readonly namespaceId: 'public';
               readonly fields: {
-                readonly EmploymentType: { readonly column: 'EmploymentType' };
                 readonly appliedAt: { readonly column: 'appliedAt' };
                 readonly company: { readonly column: 'company' };
                 readonly createdAt: { readonly column: 'createdAt' };
+                readonly employmentType: { readonly column: 'employmentType' };
                 readonly id: { readonly column: 'id' };
                 readonly jobUrl: { readonly column: 'jobUrl' };
                 readonly location: { readonly column: 'location' };
@@ -728,10 +727,13 @@ type ContractBase = Omit<
       readonly insertOnConflictSkip: true;
       readonly insertOnConflictTarget: true;
       readonly insertOnConflictWithoutTarget: true;
+      readonly jsonAgg: true;
+      readonly jsonAggWithoutTruncation: true;
       readonly lateral: true;
       readonly lockNowait: true;
       readonly lockOf: true;
       readonly lockSkipLocked: true;
+      readonly outerReferencesInDerivedTables: true;
       readonly returning: true;
       readonly scalarList: true;
     };
