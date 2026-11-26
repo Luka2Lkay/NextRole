@@ -49,7 +49,9 @@ Applications can move through different stages:
 
 ### Project Structure
 
+```
 {{TREE}}
+```
 
 ### Getting Started
 
