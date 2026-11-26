@@ -1,5 +1,20 @@
 import { z } from "zod";
 
+const dateSchema = z
+  .string()
+  .optional()
+  .refine((value) => {
+    if (!value) return true;
+
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+
+    const date = new Date(`${value}T00:00:00.000Z`);
+
+    return (
+      !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value
+    );
+  }, "Please enter a valid application date");
+
 export const applicationSchema = z.object({
   company: z.string().trim().min(1, { message: "Company name is required" }),
   position: z.string().trim().min(1, { message: "Position is required" }),
@@ -24,7 +39,7 @@ export const applicationSchema = z.object({
     "REJECTED",
     "WITHDRAWN",
   ]),
-  appliedAt: z.string().optional(),
+  appliedAt: dateSchema,
   source: z.enum([
     "LINKEDIN",
     "INDEED",
