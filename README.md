@@ -65,6 +65,8 @@ Applications can move through different stages:
 |   |   └──sign-up/
 |   |      └──[[...sign-up]]/
 |   |         └──page.tsx
+|   ├──actions/
+|   |   └──applications.ts
 |   ├──api/
 |   |   └──applications/
 |   |      └──route.ts
