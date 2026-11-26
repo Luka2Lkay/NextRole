@@ -108,19 +108,6 @@
         "models": {
           "Application": {
             "fields": {
-              "EmploymentType": {
-                "nullable": false,
-                "type": {
-                  "codecId": "pg/text@1",
-                  "kind": "scalar"
-                },
-                "valueSet": {
-                  "entityKind": "enum",
-                  "entityName": "EmploymentType",
-                  "namespaceId": "public",
-                  "plane": "domain"
-                }
-              },
               "appliedAt": {
                 "nullable": true,
                 "type": {
@@ -146,6 +133,19 @@
                   "typeParams": {
                     "precision": 3
                   }
+                }
+              },
+              "employmentType": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                },
+                "valueSet": {
+                  "entityKind": "enum",
+                  "entityName": "EmploymentType",
+                  "namespaceId": "public",
+                  "plane": "domain"
                 }
               },
               "id": {
@@ -230,9 +230,6 @@
             "relations": {},
             "storage": {
               "fields": {
-                "EmploymentType": {
-                  "column": "EmploymentType"
-                },
                 "appliedAt": {
                   "column": "appliedAt"
                 },
@@ -241,6 +238,9 @@
                 },
                 "createdAt": {
                   "column": "createdAt"
+                },
+                "employmentType": {
+                  "column": "employmentType"
                 },
                 "id": {
                   "column": "id"
@@ -286,9 +286,9 @@
             "applications": {
               "checks": [
                 {
-                  "expression": "\"EmploymentType\" IN ('FULL_TIME', 'PART_TIME', 'CONTRACT', 'INTERNSHIP', 'TEMPORARY', 'FREELANCE')",
-                  "name": "applications_EmploymentType_check_098a732d",
-                  "prefix": "applications_EmploymentType_check"
+                  "expression": "\"employmentType\" IN ('FULL_TIME', 'PART_TIME', 'CONTRACT', 'INTERNSHIP', 'TEMPORARY', 'FREELANCE')",
+                  "name": "applications_employmentType_check_3018aa32",
+                  "prefix": "applications_employmentType_check"
                 },
                 {
                   "expression": "\"source\" IN ('LINKEDIN', 'INDEED', 'COMPANY_WEBSITE', 'REFERRAL', 'CAREERS24', 'PNET', 'OTHER')",
@@ -302,21 +302,6 @@
                 }
               ],
               "columns": {
-                "EmploymentType": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "default": {
-                    "kind": "literal",
-                    "value": "FULL_TIME"
-                  },
-                  "nullable": false,
-                  "valueSet": {
-                    "entityKind": "valueSet",
-                    "entityName": "EmploymentType",
-                    "namespaceId": "public",
-                    "plane": "storage"
-                  }
-                },
                 "appliedAt": {
                   "codecId": "pg/timestamptz-date@1",
                   "dataType": "pg/timestamptz",
@@ -340,6 +325,21 @@
                   "nullable": false,
                   "typeParams": {
                     "precision": 3
+                  }
+                },
+                "employmentType": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "default": {
+                    "kind": "literal",
+                    "value": "FULL_TIME"
+                  },
+                  "nullable": false,
+                  "valueSet": {
+                    "entityKind": "valueSet",
+                    "entityName": "EmploymentType",
+                    "namespaceId": "public",
+                    "plane": "storage"
                   }
                 },
                 "id": {
@@ -379,6 +379,10 @@
                 "source": {
                   "codecId": "pg/text@1",
                   "dataType": "pg/text",
+                  "default": {
+                    "kind": "literal",
+                    "value": "OTHER"
+                  },
                   "nullable": false,
                   "valueSet": {
                     "entityKind": "valueSet",
@@ -462,7 +466,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "f94e85d02fec2a5684981cead3f21423d4202c3dca9764b2f66b1cedafffa269"
+    "storageHash": "fbc68c38f13dab37901e4f06728eb204c6736f96de68c1deaeee8020bba01d71"
   },
   "execution": {
     "executionHash": "92d2f64f962772a68a2b76bc785d5a768b871f16dde542b3e8a29114691d61ea",
@@ -505,10 +509,13 @@
       "insertOnConflictSkip": true,
       "insertOnConflictTarget": true,
       "insertOnConflictWithoutTarget": true,
+      "jsonAgg": true,
+      "jsonAggWithoutTruncation": true,
       "lateral": true,
       "lockNowait": true,
       "lockOf": true,
       "lockSkipLocked": true,
+      "outerReferencesInDerivedTables": true,
       "returning": true,
       "scalarList": true
     }
