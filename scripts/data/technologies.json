@@ -1,4 +1,10 @@
 {
     "next": "Next.js",
-    "tailwindcss": "Tailwind"
+    "tailwindcss": "Tailwind",
+    "typescript": "TypeScript",
+    "react": "React",
+    "@clerk/nextjs": "Clerk",
+    "prisma": "Prisma",
+    "pg": "PostgreSQL",
+    "@prisma/adapter-neon": "Neon"
 }

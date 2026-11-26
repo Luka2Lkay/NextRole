@@ -5,10 +5,6 @@ on:
         branches:
             - develop
 
-    pull_request:
-        branches:
-            - main
-
     workflow_dispatch:
 
 permissions:
@@ -42,5 +38,5 @@ jobs:
                       echo "README is already up to date."
                   else
                       git commit -m 'docs: update README'
-                      git push origin HEAD:${GITHUB_REF_NAME}
+                      git push origin develop
                   fi

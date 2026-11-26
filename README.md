@@ -47,6 +47,69 @@ Applications can move through different stages:
 
 - Next.js
 - Tailwind
+- TypeScript
+- React
+- Clerk
+- Prisma
+- PostgreSQL
+- Neon
+
+### Project Structure
+
+```
+├──app/
+|   ├──(auth)/
+|   |   ├──sign-in/
+|   |   |   └──[[...sign-in]]/
+|   |   |      └──page.tsx
+|   |   └──sign-up/
+|   |      └──[[...sign-up]]/
+|   |         └──page.tsx
+|   ├──api/
+|   |   └──applications/
+|   |      └──route.ts
+|   ├──dashboard/
+|   |   ├──analytics/
+|   |   |   └──page.tsx
+|   |   ├──applications/
+|   |   |   ├──[id]/
+|   |   |   |   └──page.tsx
+|   |   |   ├──new/
+|   |   |   |   └──page.tsx
+|   |   |   └──page.tsx
+|   |   ├──layout.tsx
+|   |   └──page.tsx
+|   ├──favicon.ico
+|   ├──globals.css
+|   ├──layout.tsx
+|   └──page.tsx
+├──components/
+|   ├──dashboard/
+|   |   ├──Footer.tsx
+|   |   ├──Navbar.tsx
+|   |   ├──RecentApplications.tsx
+|   |   ├──StatsCard.tsx
+|   |   └──StatusChart.tsx
+|   └──home/
+|      ├──Features.tsx
+|      ├──Footer.tsx
+|      ├──Hero.tsx
+|      └──Navbar.tsx
+├──lib/
+|   └──data/
+|      ├──applications.ts
+|      └──features.ts
+├──prisma/
+|   ├──contract.d.ts
+|   ├──contract.json
+|   ├──contract.prisma
+|   └──db.ts
+└──scripts/
+   ├──data/
+   |   └──technologies.json
+   └──generate_readme.js
+
+```
 
 ### Getting Started
 

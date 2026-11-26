@@ -47,6 +47,12 @@ Applications can move through different stages:
 
 {{STACK}}
 
+### Project Structure
+
+```
+{{TREE}}
+```
+
 ### Getting Started
 
 Clone the repository and install the dependencies:
