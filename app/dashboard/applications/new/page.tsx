@@ -167,14 +167,13 @@ function NewApplicationPage() {
                                         defaultValue=""
                                         className="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-sm text-stone-900 outline-none transition focus:border-green-700 focus:ring-2 focus:ring-green-100"
                                     >
-                                        <option value="" disabled>Select where you found this job</option>
+                                        <option value="OTHER">Other</option>
                                         <option value="LINKEDIN">LinkedIn</option>
                                         <option value="INDEED">Indeed</option>
                                         <option value="COMPANY_WEBSITE">Company Website</option>
                                         <option value="REFERRAL">Referral</option>
                                         <option value="CAREERS24">Careers24</option>
                                         <option value="PNET">PNet</option>
-                                        <option value="OTHER">Other</option>
                                     </select>
                                 </div>
                             </div>
