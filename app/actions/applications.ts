@@ -38,6 +38,8 @@ export async function createApplication(
 
   const data = validation.data;
 
+  console.log(data);
+
   try {
     await db.orm.public.Application.create({
       company: data.company,
