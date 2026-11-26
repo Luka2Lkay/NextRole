@@ -45,8 +45,7 @@ Applications can move through different stages:
 
 ### Tech Stack
 
-- Next.js
-- Tailwind
+
 
 ### Getting Started
 
