@@ -98,9 +98,11 @@ Applications can move through different stages:
 |      ├──Hero.tsx
 |      └──Navbar.tsx
 ├──lib/
-|   └──data/
-|      ├──applications.ts
-|      └──features.ts
+|   ├──data/
+|   |   ├──applications.ts
+|   |   └──features.ts
+|   └──validations/
+|      └──application.ts
 ├──prisma/
 |   ├──contract.d.ts
 |   ├──contract.json
