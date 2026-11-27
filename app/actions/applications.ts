@@ -70,3 +70,87 @@ export async function createApplication(
 
   redirect("/dashboard/applications");
 }
+
+export async function deleteApplication(applicationId: string) {
+  const id = Number(applicationId);
+
+  if (!Number.isInteger(id)) {
+    throw new Error("Invalid application ID.");
+  }
+
+  try {
+    await db.orm.public.Application.where({ id }).delete();
+  } catch (error) {
+    console.error("Failed to delete application:", error);
+    throw new Error("Something went wrong while deleting the application.");
+  }
+
+  revalidatePath("/dashboard");
+  revalidatePath("/dashboard/applications");
+  redirect("/dashboard/applications");
+}
+
+export async function updateApplication(
+  applicationId: string,
+  _prevState: ApplicationFormState,
+  formData: FormData,
+): Promise<ApplicationFormState> {
+  const id = Number(applicationId);
+
+  if (!Number.isInteger(id)) {
+    return { error: "Invalid application ID." };
+  }
+
+  const rawData = {
+    company: formData.get("company"),
+    position: formData.get("position"),
+    location: formData.get("location") || "",
+    employmentType: formData.get("employmentType") || "FULL_TIME",
+    salary: formData.get("salary") || "",
+    jobUrl: formData.get("jobUrl") || "",
+    status: formData.get("status") || "SAVED",
+    appliedAt: formData.get("appliedAt") || "",
+    source: formData.get("source") || "OTHER",
+    notes: formData.get("notes") || "",
+  };
+
+  const validation = applicationSchema.safeParse(rawData);
+
+  if (!validation.success) {
+    return {
+      error:
+        validation.error.issues[0]?.message ?? "Please check your form fields.",
+    };
+  }
+
+  const data = validation.data;
+
+  try {
+    await db.orm.public.Application.where({ id }).update({
+      company: data.company,
+      position: data.position,
+      location: data.location || null,
+      employmentType: data.employmentType,
+      salary: data.salary || null,
+      jobUrl: data.jobUrl || null,
+      status: data.status,
+      appliedAt: data.appliedAt
+        ? new Date(`${data.appliedAt}T00:00:00.000Z`)
+        : null,
+      source: data.source,
+      notes: data.notes || null,
+      updatedAt: new Date(),
+    });
+  } catch (error) {
+    console.error("Failed to update application:", error);
+    return {
+      error:
+        "Something went wrong while updating your application. Please try again.",
+    };
+  }
+
+  revalidatePath("/dashboard");
+  revalidatePath("/dashboard/applications");
+  revalidatePath(`/dashboard/applications/${applicationId}`);
+  redirect(`/dashboard/applications/${applicationId}`);
+}

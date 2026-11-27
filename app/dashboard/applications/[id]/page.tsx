@@ -8,8 +8,10 @@ import {
     CalendarDays,
     ExternalLink,
     FileText,
+    Pencil,
 } from "lucide-react";
 import Link from "next/link";
+import DeleteApplicationButton from "@/components/dashboard/DeleteApplicationButton";
 
 interface Props {
     params: Promise<{ id: string }>;
@@ -60,7 +62,6 @@ async function ApplicationPage({ params }: Props) {
 
     return (
         <main className="min-w-0 space-y-6 p-4 sm:space-y-8 sm:p-6 lg:p-8">
-            {/* Back navigation */}
             <Link
                 href="/dashboard/applications"
                 className="inline-flex items-center gap-2 text-sm font-medium text-stone-500 transition hover:text-green-950"
@@ -70,7 +71,6 @@ async function ApplicationPage({ params }: Props) {
             </Link>
 
             <div className="mx-auto w-full max-w-4xl">
-                {/* Application heading */}
                 <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-start sm:justify-between">
                     <div className="min-w-0">
                         <p className="text-sm font-semibold text-green-700">
@@ -89,22 +89,35 @@ async function ApplicationPage({ params }: Props) {
                         </div>
                     </div>
 
-                    <span
-                        className={`w-fit shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold ${statusStyles[application.status] || statusStyles.SAVED
-                            }`}
-                    >
-                        {application.status}
-                    </span>
+                    <div className="flex shrink-0 items-center gap-2">
+                        <Link
+                            href={`/dashboard/applications/${application.id}/edit`}
+                            aria-label={`Edit ${application.company} application`}
+                            title="Edit application"
+                            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 shadow-sm transition hover:border-green-800/30 hover:bg-green-50 hover:text-green-900"
+                        >
+                            <Pencil size={16} />
+                        </Link>
+                        <DeleteApplicationButton
+                            applicationId={application.id}
+                            applicationName={`${application.position} at ${application.company}`}
+                        />
+                        <span
+                            className={`rounded-full px-3 py-1.5 text-xs font-semibold ${statusStyles[application.status] || statusStyles.SAVED
+                                }`}
+                        >
+                            {application.status}
+                        </span>
+                    </div>
                 </div>
 
-                {/* Application details */}
                 <div className="rounded-xl border border-green-900/10 bg-white p-4 shadow-sm sm:p-6 lg:p-8">
                     <h2 className="mb-6 text-lg font-semibold text-green-950">
                         Application details
                     </h2>
 
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
-                        {/* Company */}
+
                         <div className="min-w-0">
                             <div className="flex items-center gap-2 text-sm text-stone-500">
                                 <BriefcaseBusiness size={16} />
@@ -115,7 +128,6 @@ async function ApplicationPage({ params }: Props) {
                             </p>
                         </div>
 
-                        {/* Position */}
                         <div className="min-w-0">
                             <div className="flex items-center gap-2 text-sm text-stone-500">
                                 <BriefcaseBusiness size={16} />
@@ -126,7 +138,6 @@ async function ApplicationPage({ params }: Props) {
                             </p>
                         </div>
 
-                        {/* Location */}
                         <div className="min-w-0">
                             <div className="flex items-center gap-2 text-sm text-stone-500">
                                 <MapPin size={16} />
@@ -137,7 +148,6 @@ async function ApplicationPage({ params }: Props) {
                             </p>
                         </div>
 
-                        {/* Salary */}
                         <div className="min-w-0">
                             <div className="flex items-center gap-2 text-sm text-stone-500">
                                 <Banknote size={16} />
@@ -148,7 +158,6 @@ async function ApplicationPage({ params }: Props) {
                             </p>
                         </div>
 
-                        {/* Applied date */}
                         <div className="min-w-0">
                             <div className="flex items-center gap-2 text-sm text-stone-500">
                                 <CalendarDays size={16} />
@@ -159,7 +168,6 @@ async function ApplicationPage({ params }: Props) {
                             </p>
                         </div>
 
-                        {/* Job URL */}
                         <div className="min-w-0">
                             <div className="flex items-center gap-2 text-sm text-stone-500">
                                 <ExternalLink size={16} />
@@ -184,7 +192,6 @@ async function ApplicationPage({ params }: Props) {
                         </div>
                     </div>
 
-                    {/* Notes */}
                     <div className="mt-8 border-t border-green-900/10 pt-6">
                         <div className="flex items-center gap-2 text-sm text-stone-500">
                             <FileText size={16} />
