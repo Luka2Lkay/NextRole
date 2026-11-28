@@ -75,6 +75,8 @@ Applications can move through different stages:
 |   |   |   └──page.tsx
 |   |   ├──applications/
 |   |   |   ├──[id]/
+|   |   |   |   ├──edit/
+|   |   |   |   |   └──page.tsx
 |   |   |   |   └──page.tsx
 |   |   |   ├──new/
 |   |   |   |   └──page.tsx
@@ -87,6 +89,7 @@ Applications can move through different stages:
 |   └──page.tsx
 ├──components/
 |   ├──dashboard/
+|   |   ├──DeleteApplicationButton.tsx
 |   |   ├──Footer.tsx
 |   |   ├──Navbar.tsx
 |   |   ├──RecentApplications.tsx
