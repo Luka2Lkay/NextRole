@@ -94,7 +94,7 @@ async function ApplicationPage({ params }: Props) {
                             href={`/dashboard/applications/${application.id}/edit`}
                             aria-label={`Edit ${application.company} application`}
                             title="Edit application"
-                            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 bg-white text-stone-600 shadow-sm transition hover:border-green-800/30 hover:bg-green-50 hover:text-green-900"
+                            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 bg-white text-green-500 shadow-sm transition hover:border-green-800/30 hover:bg-green-50 hover:text-green-900"
                         >
                             <Pencil size={16} />
                         </Link>
